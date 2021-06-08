@@ -44,7 +44,7 @@ public:
             s=char(columnNumber%26+65) + s;
             columnNumber/=26;
             //a ascii value 65
-            //total 26 alphabets present
+            //total 26 alphabets present 
         }
         return s;
     }
