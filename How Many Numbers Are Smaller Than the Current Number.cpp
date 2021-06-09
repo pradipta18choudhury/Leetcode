@@ -30,7 +30,7 @@ Constraints:
 2 <= nums.length <= 500
 0 <= nums[i] <= 100
 ******/
-class Solution {
+class Solution {//--------------------------------------------- O(n^2) --------------------------------------------------------------------
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
         vector<int>output;
@@ -44,6 +44,21 @@ public:
                     count++;
             }
             output.push_back(count);
+        }
+        return output;
+    }
+};
+//-------------------------------------------------------- Another Approach: O(nlogn) --------------------------------------------------------------------------------
+class Solution {
+public:
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int>output;
+        vector<int> v=nums;
+       sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++)
+        {
+            int temp=lower_bound(nums.begin(),nums.end(),v[i])-nums.begin();
+            output.push_back(temp);
         }
         return output;
     }
